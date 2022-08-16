@@ -1,0 +1,13 @@
+DEPLOYMENT
+ensure dependencies are zipped with the lambda function
+
+Zip the deployment package
+zip -r ../deployment-package.zip . 
+
+
+Add lambda_function.py to deployment package
+zip -g deployment-package.zip lambda_function.py
+
+
+to deploy the zip file
+aws lambda update-function-code --function-name getCardPrices --zip-file fileb://deployment-package.zip
